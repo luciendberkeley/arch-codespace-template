@@ -6,7 +6,7 @@
 
   "image": "dcsunset/i3-arch-vnc:latest",
 
-  "remoteUser": "arch",
+  "containerUser": "arch",
 
   "containerEnv": {
     "VNC_PASSWD": "password",
