@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/set -eux
+set -eux
 echo "---------- Running Setup"
 
 # Login to Azure
