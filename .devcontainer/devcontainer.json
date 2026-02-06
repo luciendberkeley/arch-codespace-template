@@ -1,20 +1,24 @@
 {
   "name": "Arch i3 Codespace",
-  "image": "dcsunset/i3-arch-vnc:latest",
-
-  "forwardPorts": [6080],
-  "portsAttributes": {
-    "6080": {
-    "label": "i3 Desktop (noVNC)",
-    "onAutoForward": "openBrowser"
-    }
+  "build": {
+    "dockerfile": "Dockerfile"
   },
+
+  "image": "dcsunset/i3-arch-vnc:latest",
 
   "remoteUser": "arch",
 
   "containerEnv": {
     "VNC_PASSWD": "password",
     "USERNAME": "arch"
+  },
+  
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+    "label": "i3 Desktop (noVNC)",
+    "onAutoForward": "openBrowser"
+    }
   },
 
   "postCreateCommand": "bash /workspaces/*/.devcontainer/setup.sh"

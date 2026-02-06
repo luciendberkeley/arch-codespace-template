@@ -1,19 +1,14 @@
-# Use the latest Arch Linux base image
-FROM archlinux:latest
+FROM dcsunset/i3-arch-vnc:latest
 
-# Update system and install base-devel group
-RUN pacman -Syu --noconfirm base-devel
+# Create the dev user BEFORE Codespaces connects
+RUN useradd -m -s /bin/bash arch 
+&& echo "arch ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-# Install other necessary packages
-RUN pacman -S --noconfirm git vim python jdk-openjdk curl tmux fastfetch nodejs npm
+ENV USERNAME=arch
 
-# add user
-RUN useradd -m arch
-RUN usermod -aG wheel arch
-RUN sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-RUN chown -R arch:arch /workspaces
+ARG USER_UID=1000
+ARG USER_GID=1000
 
-WORKDIR /
-RUN curl -LJO https://raw.githubusercontent.com/luciendberkeley/arch-codespace-template/refs/heads/main/setup.sh
-RUN chmod +x ./setup.sh
-RUN ./setup.sh
+RUN groupadd -g $USER_GID arch \
+ && useradd -m -u $USER_UID -g $USER_GID -s /bin/bash arch \
+ && echo "arch ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
