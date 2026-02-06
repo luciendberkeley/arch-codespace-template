@@ -8,4 +8,5 @@ RUN pacman -Syu --noconfirm base-devel
 RUN pacman -S --noconfirm git vim python jdk-openjdk curl
 
 WORKDIR /app
-RUN curl -LJO
+RUN curl -LJO https://raw.githubusercontent.com/luciendberkeley/arch-codespace-template/refs/heads/main/setup.sh
+
