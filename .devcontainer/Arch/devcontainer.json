@@ -17,7 +17,5 @@
     "label": "i3 Desktop (noVNC)",
     "onAutoForward": "openBrowser"
     }
-  },
-
-  "postCreateCommand": "bash /workspaces/*/.devcontainer/Arch/setup.sh"
+  }
 }
