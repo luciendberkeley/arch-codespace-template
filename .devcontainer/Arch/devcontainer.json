@@ -19,5 +19,5 @@
     }
   },
 
-  "postCreateCommand": "bash /workspaces/*/.devcontainer/setup.sh"
+  "postCreateCommand": "bash /workspaces/*/.devcontainer/Arch/setup.sh"
 }
