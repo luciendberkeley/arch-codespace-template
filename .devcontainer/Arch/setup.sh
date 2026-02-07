@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -eux
-echo "---------- Running Setup"
+echo "---------- Running Setup ----------"
 
 sudo pacman -Syu
 sudo pacman --noconfirm vim tmux kitty
