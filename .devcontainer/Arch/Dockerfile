@@ -36,7 +36,6 @@ RUN mkdir -p /home/arch/.config/i3 && \
 
 EXPOSE 6080
 
-RUN useradd -m arch
 WORKDIR /home/arch
 
 CMD ["/usr/bin/supervisord"]
